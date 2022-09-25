@@ -18,6 +18,7 @@ if (!localStorage.getItem("level")) {
     "level"
   )}`;
 }
+localStorage.setItem("first-time", "0");
 changeOption();
 changeLevel();
 time.innerHTML = timeChecker();
@@ -25,6 +26,7 @@ levels.onchange = function () {
   changeDescription();
   changeOption();
   time.innerHTML = timeChecker();
+  location.reload();
 };
 function changeDescription() {
   localStorage.setItem("level", levels.value);
@@ -92,6 +94,22 @@ let wordsArray = [
   "Mirenda",
   "Ships",
   "Potato",
+  "University",
+  "School",
+  "Then",
+  "What",
+  "Laptop",
+  "Finger",
+  "Hand",
+  "Leg",
+  "Face",
+  "Head",
+  "Eyes",
+  "Nails",
+  "Hammer",
+  "Car",
+  "Ferrari",
+  "BMW",
 ];
 let input = document.querySelector("input");
 input.onpaste = function () {
@@ -137,6 +155,7 @@ document.querySelector("button").onclick = function () {
   generateWords(array);
   this.remove();
   input.focus();
+  input.value = "";
 };
 function timeChecker() {
   switch (localStorage.getItem("level")) {
@@ -149,7 +168,10 @@ function timeChecker() {
 }
 function startPlay(array) {
   let secondsLeft = document.querySelector(".seconds");
-  secondsLeft.innerHTML = timeChecker();
+  if (localStorage.getItem("first-time") == 0) {
+    secondsLeft.innerHTML = 7;
+    localStorage.setItem("first-time", 1);
+  } else secondsLeft.innerHTML = timeChecker();
   let start = setInterval(() => {
     secondsLeft.innerHTML--;
     if (
@@ -167,28 +189,49 @@ function startPlay(array) {
           div.classList = "bad";
           div.textContent = "Game Over!";
           finish.append(div);
+          let reload = document.createElement("div");
+          reload.classList = "click-me";
+          reload.innerHTML = "Click me!";
+          reload.onclick = reloadPage;
+          finish.append(reload);
+          setTimeout(() => {
+            finish.style.cssText = "top:50%;z-index:12";
+            document.querySelector(".game").style.cssText =
+              "opacity:0.4;z-index:-1";
+          }, 1000);
         }
       } else {
         let div = document.createElement("div");
         div.classList = "good";
         div.textContent = "Gongratz!";
         finish.append(div);
+        let reload = document.createElement("div");
+        reload.classList = "click-me";
+        reload.innerHTML = "Click me!";
+        reload.onclick = reloadPage;
+        finish.append(reload);
+        setTimeout(() => {
+          finish.style.cssText = "top:50%;z-index:12";
+          document.querySelector(".game").style.cssText =
+            "opacity:0.4;z-index:-1";
+        }, 1000);
       }
     }
   }, 1000);
 }
 function wordsChecker() {
-  let word = [];
-  for (let i = 0; i < input.value.length - 1; i++) word[i] = input.value[i];
-  console.log(word);
-  if (input.value[input.value.length - 1] != " ")
-    word.push(input.value[input.value.length - 1]);
+  let word = input.value.split("");
+  if (word[word.length - 1] == " ") word.splice(word.length - 1, 1);
+  word = word.join("");
   if (localStorage.getItem("level") == "Hard") {
-    if (word.join("") == current.innerHTML) return true;
+    if (word == current.innerHTML) return true;
     return false;
   } else {
-    if (word.join("").toLowerCase() == current.innerHTML.toLowerCase())
-      return true;
+    if (word.toLowerCase() == current.innerHTML.toLowerCase()) return true;
     return false;
   }
+}
+
+function reloadPage() {
+  location.reload();
 }

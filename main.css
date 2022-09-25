@@ -8,6 +8,12 @@
 }
 body {
   background: #000016;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  height: 100vh;
 }
 :root {
   --main-color1: #2196f399;
@@ -199,14 +205,46 @@ body {
 }
 .finish {
   width: fit-content;
-  margin: 10px auto;
   font-weight: bold;
   font-size: 30px;
   color: white;
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  background: rgb(131, 74, 74);
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 20px 10px;
+  background: #145a9b;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  text-align: center;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
 }
 .good {
   color: green;
 }
 .bad {
   color: red;
+}
+.finish .click-me {
+  width: fit-content;
+  color: black;
+  margin: auto;
+  background: var(--color1);
+  padding: 10px;
+  border-radius: 6px;
+
+  cursor: pointer;
 }

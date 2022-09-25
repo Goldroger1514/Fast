@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fast Fingers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="game">
+      <div class="title">Fast Fingers</div>
+      <div class="level">
+        <div class="explenation">Choose Your Level:</div>
+        <select name="levels" id="" class="levels">
+          <option value="Easy" class="active">Easy</option>
+          <option value="Normal">Normal</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+      <div class="description">On easy level...</div>
+      <div class="start-game">
+        <div class="current-word">Hello</div>
+        <div class="x">
+          <input type="text" class="input" />
+          <div class="info">
+            <div class="time">You have <span class="seconds"></span>s Left</div>
+            <div class="score">
+              Score: <span class="got"></span> From
+              <span class="total"></span>
+            </div>
+          </div>
+        </div>
+        <button class="start">Start</button>
+      </div>
+      <div class="upcoming-words"></div>
+    </div>
+    <div class="finish"></div>
+    <script src="main.js"></script>
+  </body>
+</html>
