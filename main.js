@@ -189,6 +189,11 @@ function startPlay(array) {
           div.classList = "bad";
           div.textContent = "Game Over!";
           finish.append(div);
+          let finalScore = document.createElement("div");
+          finalScore.innerHTML = `You got ${+score.innerHTML} from ${
+            array.length
+          }`;
+          finish.append(finalScore);
           let reload = document.createElement("div");
           reload.classList = "click-me";
           reload.innerHTML = "Click me!";
@@ -205,6 +210,11 @@ function startPlay(array) {
         div.classList = "good";
         div.textContent = "Gongratz!";
         finish.append(div);
+        let finalScore = document.createElement("div");
+        finalScore.innerHTML = `You got ${+score.innerHTML} from ${
+          array.length
+        }`;
+        finish.append(finalScore);
         let reload = document.createElement("div");
         reload.classList = "click-me";
         reload.innerHTML = "Click me!";
