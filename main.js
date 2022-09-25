@@ -191,7 +191,7 @@ function startPlay(array) {
           finish.append(div);
           let finalScore = document.createElement("div");
           finalScore.innerHTML = `You got ${+score.innerHTML} from ${
-            array.length
+            total.innerHTML
           }`;
           finish.append(finalScore);
           let reload = document.createElement("div");
@@ -212,7 +212,7 @@ function startPlay(array) {
         finish.append(div);
         let finalScore = document.createElement("div");
         finalScore.innerHTML = `You got ${+score.innerHTML} from ${
-          array.length
+          total.innerHTML
         }`;
         finish.append(finalScore);
         let reload = document.createElement("div");
