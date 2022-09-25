@@ -3,6 +3,7 @@ let description = document.querySelector(".description");
 let inputt = document.querySelector("input");
 let current = document.querySelector(".current-word");
 let score = document.querySelector(".got");
+let total=document.querySelector('.total');
 let seconds = document.querySelector(".seconds");
 let time = document.querySelector(".seconds");
 let descriptionArray = [
