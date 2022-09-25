@@ -152,7 +152,10 @@ function startPlay(array) {
   secondsLeft.innerHTML = timeChecker();
   let start = setInterval(() => {
     secondsLeft.innerHTML--;
-    if (secondsLeft.innerHTML == 0) {
+    if (
+      secondsLeft.innerHTML == 0 ||
+      input.value[input.value.length - 1] == " "
+    ) {
       clearInterval(start);
       if (array.length >= 1) {
         if (wordsChecker()) {
@@ -175,11 +178,16 @@ function startPlay(array) {
   }, 1000);
 }
 function wordsChecker() {
+  let word = [];
+  for (let i = 0; i < input.value.length - 1; i++) word[i] = input.value[i];
+  console.log(word);
+  if (input.value[input.value.length - 1] != " ")
+    word.push(input.value[input.value.length - 1]);
   if (localStorage.getItem("level") == "Hard") {
-    if (input.value == current.innerHTML) return true;
+    if (word.join("") == current.innerHTML) return true;
     return false;
   } else {
-    if (input.value.toLowerCase() == current.innerHTML.toLowerCase())
+    if (word.join("").toLowerCase() == current.innerHTML.toLowerCase())
       return true;
     return false;
   }
