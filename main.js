@@ -3,8 +3,8 @@ let description = document.querySelector(".description");
 let inputt = document.querySelector("input");
 let current = document.querySelector(".current-word");
 let score = document.querySelector(".got");
-let total=document.querySelector('.total');
 let seconds = document.querySelector(".seconds");
+let total = document.querySelector(".total");
 let time = document.querySelector(".seconds");
 let descriptionArray = [
   "On this level,lowercase letters and uppercase letter doesn't matter,you just need to write the words correctly.\nYou have 5 seconds for each word.",
